@@ -22,6 +22,7 @@ FROM Playlist p
 INNER JOIN PlaylistTrack pt ON p.PlaylistId = pt.PlaylistId
 WHERE p.Name IS NOT NULL
 GROUP BY p.Name
+HAVING COUNT(pt.TrackId) > 0
 ORDER BY Total_Tracks DESC;
 
 --------------------------------------------------------------------------------

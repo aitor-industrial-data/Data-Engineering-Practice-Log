@@ -16,12 +16,10 @@ SELECT
     i.InvoiceDate,
     i.Total,
     c.FirstName || ' ' || c.LastName AS Full_Name, -- Fundamento: Concatenación
-    c.Country
 FROM Invoice i
 INNER JOIN Customer c ON i.CustomerId = c.CustomerId
 WHERE c.Address IS NOT NULL
   AND i.Total > 5
-  AND i.InvoiceDate IS NOT NULL
 ORDER BY i.Total DESC;
 
 --------------------------------------------------------------------------------
