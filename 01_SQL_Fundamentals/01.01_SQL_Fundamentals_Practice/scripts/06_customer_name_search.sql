@@ -6,8 +6,7 @@
 
 /* ENUNCIADO:
    Buscar los clientes cuyo nombre comience por "J" y contenga 
-   la letra "n", que tengan un correo electrónico registrado y hayan sido 
-   creados en el sistema antes de 2025. 
+   la letra "n", que tengan un correo electrónico registrado y pertenecientes a una empresa.
    
    Ordenar los resultados por país de forma ascendente y por apellido.
 */
