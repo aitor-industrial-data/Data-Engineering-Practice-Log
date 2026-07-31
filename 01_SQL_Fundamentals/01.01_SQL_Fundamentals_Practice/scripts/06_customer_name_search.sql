@@ -19,7 +19,7 @@ SELECT
 FROM Customer
 WHERE FirstName LIKE 'J%n%'
   AND Email IS NOT NULL
-  AND Company IS NOT NULL -- Suponiendo que buscamos clientes de empresa
+  AND Company IS NOT NULL 
 ORDER BY Country ASC, LastName ASC;
 
 --------------------------------------------------------------------------------
