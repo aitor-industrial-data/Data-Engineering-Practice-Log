@@ -10,7 +10,7 @@
    
    Consideraciones de ingeniería:
    1. Segmentación Geográfica: Clasificar como 'Domestic' (USA) o 'Foreign'.
-   2. Categorización de Actividad: Clasificar por volumen de pedidos (High/Moderate/Low).
+   2. Categorización de Actividad: Clasificar por volumen de pedidos: High(>10), Moderate(5-10), Low(1-4) o No Activity (0)
    3. Métricas Financieras: Calcular el Valor Total (SUM) y el Ticket Medio (AVG).
    4. Calidad de Datos: Filtrar registros sin email para asegurar contactabilidad.
    5. Robustez: Usar LEFT JOIN para incluir clientes incluso si no tienen ventas.
