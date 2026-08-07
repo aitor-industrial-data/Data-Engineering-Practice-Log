@@ -1,22 +1,19 @@
-# 🚀 Data Engineering Journey | aitor-industrial-data
+# 📓 Data Engineering — Practice Log
 
-Ingeniero Técnico Industrial en transición hacia el Data Engineering. Este repositorio documenta mi evolución técnica, diseño de arquitecturas y optimización de pipelines.
+> Cuaderno de práctica y ejercicios durante mi aprendizaje de Data Engineering. No es un proyecto de portfolio.
+>
+> Proyectos completos: **[SunSaver-ETL-Platform](https://github.com/aitor-industrial-data/SunSaver-ETL-Platform)** · **[Residential-Power-Audit-Spark-Pipeline](https://github.com/aitor-industrial-data/Residential-Power-Audit-Spark-Pipeline)** · **[ai-driven-cross-generator-transfer-learning](https://github.com/aitor-industrial-data/ai-driven-cross-generator-transfer-learning)**
 
-## 📁 Estructura
-- **01-SQL-Fundamentos:** Ejercicios de UC Davis y lógica relacional industrial.
+## 📂 Estructura
 
-## 📑 Hito Actual: Día 10 - Documentación Técnica
-He diseñado una arquitectura relacional para una planta de producción para practicar la integridad de datos:
-- **Entidad Activos:** Maestro de maquinaria industrial.
-- **Entidad Operaciones:** Registro de telemetría y mantenimientos.
-- **Lógica:** Implementación de relaciones 1:N para asegurar la trazabilidad.
+| Carpeta | Contenido |
+|---|---|
+| `01_SQL_Fundamentals` | |
+| `02_SQL_Advanced_Wrangling_and_Testing` | |
+| `03_Python_Core` | |
+| `04_ETL_Pipelines` | |
+| `99_SQL_Practices_Chinook` | |
 
----
-*Próximo paso: Análisis de casos de negocio reales (Día 11).*
+## 🛠️ Stack
 
-
-
-
-"Nota: Este proyecto utiliza la versión "Singular" de la base de datos Chinook (ej., la tabla "Customer" en lugar de "Customers"). Si utiliza la versión plural, ajuste los nombres de las tablas según corresponda."
-
-"Note: This project uses the 'Singular' version of the Chinook database (e.g., Table 'Customer' instead of 'Customers'). If you are using the plural version, please adjust the table names accordingly."
+`Python` · `SQL` · `Docker`
