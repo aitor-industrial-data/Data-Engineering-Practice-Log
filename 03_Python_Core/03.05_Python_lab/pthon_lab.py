@@ -1,13 +1,35 @@
-#abrir archivo ventas.csv con pandas
-import pandas as pd
+import csv
+from collections import defaultdict
 
-ventas = pd.read_csv("ventas.csv")
+# Diccionarios acumuladores
+facturacion_region = defaultdict(float)
+gastos_cliente = defaultdict(float)
 
+with open('pedidos.csv', mode='r', encoding='utf-8') as archivo:
+    lector = csv.DictReader(archivo)
+    
+    for fila in lector:
+        # 1. Filtrar solo completados
+        if fila['estado'] == 'Completado':
+            region = fila['region']
+            cliente = fila['cliente']
+            monto = float(fila['monto_eur'])
+            
+            # 2 y 3. Acumular totales
+            facturacion_region[region] += monto
+            gastos_cliente[cliente] += monto
+            
+            
+print(facturacion_region)
+print(gastos_cliente)
+# Buscar el cliente top iterando el diccionario
+cliente_top = 'none' 
+monto_top=0.0
 
+for nombre,monto in gastos_cliente.items():
+    monto=float(monto)
+    if monto>monto_top:
+        monto_top=monto
+        cliente_top=nombre
 
-#calcular cuanto suma la columa de unit_price por quantity
-ventas["total"] = ventas["unit_price"] * ventas["quantity"]
-
-# Si total > 1000 pone 'VIP', si no pone 'NORMAL'
-ventas["status"] = ["VIP" if total > 1000 else "NORMAL" for total in ventas["total"]]
-print(ventas)
+print(f'el cliente top es {cliente_top} y su monto es {monto_top}$')
