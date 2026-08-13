@@ -18,18 +18,14 @@ with open('pedidos.csv', mode='r', encoding='utf-8') as archivo:
             # 2 y 3. Acumular totales
             facturacion_region[region] += monto
             gastos_cliente[cliente] += monto
-            
-            
-print(facturacion_region)
-print(gastos_cliente)
+
 # Buscar el cliente top iterando el diccionario
-cliente_top = 'none' 
-monto_top=0.0
+cliente_top = max(gastos_cliente, key=gastos_cliente.get)
+monto_top = gastos_cliente[cliente_top]
 
-for nombre,monto in gastos_cliente.items():
-    monto=float(monto)
-    if monto>monto_top:
-        monto_top=monto
-        cliente_top=nombre
+print("--- Facturación por Región (Completados) ---")
+for region, total in facturacion_region.items():
+    print(f"{region}: {total:.2f} €")
 
-print(f'el cliente top es {cliente_top} y su monto es {monto_top}$')
+print("\n--- Cliente Top ---")
+print(f"El cliente con más gasto es {cliente_top} con {monto_top:.2f} €")
