@@ -1,31 +1,22 @@
 import csv
-from collections import defaultdict
 
-# Diccionarios acumuladores
-facturacion_region = defaultdict(float)
-gastos_cliente = defaultdict(float)
 
-with open('pedidos.csv', mode='r', encoding='utf-8') as archivo:
+ingresos_categoria = {}
+max_unidades = -1
+producto_top = None
+
+with open('productos.csv', mode='r', encoding='utf-8') as archivo:
     lector = csv.DictReader(archivo)
-    
-    for fila in lector:
-        # 1. Filtrar solo completados
-        if fila['estado'] == 'Completado':
-            region = fila['region']
-            cliente = fila['cliente']
-            monto = float(fila['monto_eur'])
+
+    for line in lector:
+        line['unidades_vendidas']=float(line['unidades_vendidas'])
+        if line['unidades_vendidas']>0:
+            categoria = line['categoria']
+            precio= float(line['precio'].replace('$',''))
+            print(categoria, precio)
             
-            # 2 y 3. Acumular totales
-            facturacion_region[region] += monto
-            gastos_cliente[cliente] += monto
+            ingresos_categoria[categoria] = ingresos_categoria.get(categoria, 0.0) + precio
+            
 
-# Buscar el cliente top iterando el diccionario
-cliente_top = max(gastos_cliente, key=gastos_cliente.get)
-monto_top = gastos_cliente[cliente_top]
-
-print("--- Facturación por Región (Completados) ---")
-for region, total in facturacion_region.items():
-    print(f"{region}: {total:.2f} €")
-
-print("\n--- Cliente Top ---")
-print(f"El cliente con más gasto es {cliente_top} con {monto_top:.2f} €")
+    for cat, precio in ingresos_categoria.items():
+        print(f'ingresos por categoria: {cat} ->> {precio}')
