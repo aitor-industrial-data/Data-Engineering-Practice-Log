@@ -95,6 +95,31 @@ print(4 in l)          # True
 
 ---
 
+## 🔹 Unir lista en un string — `.join()`
+
+⚠️ `.join()` es un método de **string**, no de lista — se llama sobre el separador, no sobre la lista. Se pone aquí porque es la forma más habitual de "convertir una lista en texto".
+
+```python
+lista = ["T-101", "temperatura", "76.4"]
+
+",".join(lista)          # "T-101,temperatura,76.4"
+" ".join(lista)            # "T-101 temperatura 76.4"
+"".join(lista)               # "T-101temperatura76.4"  (sin separador)
+"\n".join(lista)               # una por línea
+```
+
+Todos los elementos deben ser `str`, si no da error:
+```python
+numeros = [1, 2, 3]
+",".join(numeros)                    # ❌ TypeError: expected str instance, int found
+",".join(map(str, numeros))            # ✅ "1,2,3"
+",".join(str(n) for n in numeros)        # ✅ "1,2,3"  (con generator, igual de válido)
+```
+
+📌 Es la forma recomendada de concatenar muchos elementos, mucho más eficiente que hacer `+=` dentro de un bucle.
+
+---
+
 ## 🔹 Concatenar / repetir
 
 ```python
@@ -237,3 +262,4 @@ l = [x for x in l if x != 2]
 | Comprobar si existe | `x in l` |
 | Longitud | `len(l)` |
 | Filtrar+transformar | `[f(x) for x in l if cond]` |
+| Convertir lista a string | `",".join(l)` (elementos deben ser str) |
