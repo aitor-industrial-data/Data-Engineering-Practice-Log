@@ -1,3 +1,37 @@
+"""
+Nombre de archivo recomendado: inventory_management.py
+
+ENUNCIADO DEL PROBLEMA: Sistema de Gestión de Inventario y Ventas
+
+Crea un script en Python que permita administrar el inventario de una tienda utilizando 
+un diccionario global. El sistema debe implementar las siguientes funcionalidades:
+
+1. add_item(item, price, stock):
+   Registra un nuevo producto con su precio y stock inicial. Si el producto ya existe,
+   debe mostrar un mensaje de error sin modificar los datos.
+
+2. update_stock(item, quantity):
+   Añade o descuenta unidades al stock de un producto existente. Debe validar que el
+   producto exista en el inventario y que el resultado final no sea menor a cero.
+
+3. check_availability(item):
+   Consulta y retorna la cantidad disponible de un producto. Si el producto no existe,
+   retorna el mensaje "Item not found".
+
+4. sales_report(sales):
+   Recibe un diccionario con las ventas a realizar (clave: nombre del producto, valor: cantidad).
+   Para cada fila de venta, valida que el producto exista y cuente con stock suficiente. 
+   Descuenta las unidades vendidas, acumula el importe total de las ventas válidas e 
+   imprime mensajes de error para aquellos artículos sin stock o no registrados.
+   Devuelve un string con el total recaudado formateado a dos decimales.
+
+Caso de prueba básico:
+- Registrar "Apple" ($0.50, stock: 50) y "Banana" ($0.20, stock: 60).
+- Procesar ventas: {"Apple": 30, "Banana": 20, "Orange": 10}.
+- Salida esperada del reporte: "Total revenue: $19.00"
+"""
+
+
 inventory={}
 
 
